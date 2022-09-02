@@ -4,10 +4,33 @@
 <head>
     <title>Login Form</title>
     <link rel="stylesheet" type="text/css" href="./loginstyle.css">
+    <script>
+        function sub() {
+            const Pass = document.getElementById("Pass").value;
+            const Uname = document.getElementById("Uname").value;
+            console.log(Pass);
+            if (
+                Pass === "CE@iiit" &&
+                parseInt(Uname) >= 1 &&
+                parseInt(Uname) <= 66
+            ) {
+                document.getElementById("Pass").value = "";
+                document.getElementById("Uname").value = "";
+                location.replace(`B5200${Uname}.html`);
+            } else if (Pass !== "CE@iiit") {
+                alert(`Wrong Password`);
+                document.getElementById("Pass").value = "";
+            } else {
+                alert(`Invalid Username`);
+                document.getElementById("Uname").value = "";
+            }
+        }
+    </script>
 </head>
 
 <body>
     <div class="login-body">
+
         <div class="bg-svg">
             <svg width="100%" height="100%" viewBox="0 0 1006 830" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="undraw_Tree_swing_646s 1" clip-path="url(#clip0)">
@@ -196,41 +219,30 @@
                     </clipPath>
                 </defs>
             </svg>
-            <div class="container">
-                <!-- <div class="logo">Login</div>
-                    <div class="login">
-                        <form>
-                            <form>
-                                <label for="email">Email</label>
-                                <input type="text" id="email" name="email">
-                                <label for="password">Password</label>
-                                <input type="password" id="password" name="password>
-                              </form>
-                        </form>
-                        <a href="./biodata.html" target="_blank"><button>SUBMIT</button></a>
-                    </div>
-                </div> -->
+        </div>
+        <div class="container">
 
-                <h2>Login</h2><br>
-                <div class="login">
-                    <form id="login" method="get" action="get">
-                        <label><b>User Name
-                            </b>
-                        </label>
-                        <input type="text" name="Uname" id="Uname" placeholder="Username">
-                        <br><br>
-                        <label><b>Password
-                            </b>
-                        </label>
-                        <input type="Password" name="Pass" id="Pass" placeholder="Password" />
-                        <br><br>
-                        <a href="./biodata.html">SUBMIT</a>
-                        <br><br>
 
-                    </form>
+            <div class="login">
+                <h2>Login</h2>
+                <div>
+                    <label><b>User Name
+                        </b>
+                    </label>
+                    <input type="text" name="Uname" id="Uname" placeholder="Username">
+                    <br><br>
+                    <label><b>Password
+                        </b>
+                    </label>
+                    <input type="password" name="Pass" id="Pass" placeholder="Password" />
+                    <br><br>
+                    <button onclick="sub()" id="button">SUBMIT</button>
+                    <br><br>
+
                 </div>
-
             </div>
+
+        </div>
 </body>
 
 </html>
